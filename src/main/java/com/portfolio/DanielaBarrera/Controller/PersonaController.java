@@ -1,4 +1,4 @@
-package com.portfolio.DanielaBarrera.Controler;
+package com.portfolio.DanielaBarrera.Controller;
 
 import com.portfolio.DanielaBarrera.Entity.Persona;
 import com.portfolio.DanielaBarrera.Interface.IPersonaService;
