@@ -4,7 +4,7 @@
  */
 package com.portfolio.DanielaBarrera.Service;
 
-import com.portfolio.DanielaBarrera.Entity.skills;
+import com.portfolio.DanielaBarrera.Entity.Skills;
 import com.portfolio.DanielaBarrera.Repository.RSkills;
 import java.util.List;
 import java.util.Optional;
@@ -22,19 +22,19 @@ public class SSkills {
     @Autowired
     RSkills rskills;
     
-    public List<skills> list(){
+    public List<Skills> list(){
         return rskills.findAll();
     }
     
-    public Optional<skills> getOne(int id){
+    public Optional<Skills> getOne(int id){
         return rskills.findById(id);
     }
     
-    public Optional<skills> getByNombre(String nombre){
+    public Optional<Skills> getByNombre(String nombre){
         return rskills.findByNombre(nombre);
     }
     
-    public void save(skills skill){
+    public void save(Skills skill){
         rskills.save(skill);
     }
     

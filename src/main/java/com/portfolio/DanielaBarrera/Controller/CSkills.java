@@ -36,7 +36,7 @@ public class CSkills {
 
     @GetMapping("/lista")
     public ResponseEntity<List<Skills>> list() {
-        List<Object> list = sSkills.list();
+        List<Skills> list = sSkills.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
