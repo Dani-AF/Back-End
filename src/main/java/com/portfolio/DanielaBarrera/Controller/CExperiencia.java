@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,15 @@ public class CExperiencia {
     public ResponseEntity<List<Experiencia>> list(){
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
+    }
+    
+        @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+        if (!sExperiencia.existsById(id)) {
+            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
+        sExperiencia.delete(id);
+        return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
     
     @PostMapping("/create")
@@ -65,14 +75,5 @@ public class CExperiencia {
         
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
-    }
-    
-    public ResponseEntity<?> delete(@PathVariable("id") int id){
-        if(!sExperiencia.existsById(id))
-            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
-        
-        sExperiencia.delete(id);
-        
-        return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
     }
 }

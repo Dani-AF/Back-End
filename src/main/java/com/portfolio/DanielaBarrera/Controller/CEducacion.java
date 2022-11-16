@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.portfolio.DanielaBarrera.Controller;
 
 import com.portfolio.DanielaBarrera.Dto.dtoEducacion;
@@ -25,8 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "https://mgbfrontend.web.app")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CEducacion {
     @Autowired
     Seducacion sEducacion;
